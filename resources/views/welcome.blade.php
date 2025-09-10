@@ -35,7 +35,7 @@
             </style>
         @endif
     </head>
-    <body class="h-full bg-gray-200">
+    <body class="h-full">
          <div class="flex h-screen">
          <aside id="sidebar" class="sidebar w-64 bg-gray-800 p-4 flex flex-col justify-between border border-black">
     <div>

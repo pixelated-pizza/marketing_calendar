@@ -13,4 +13,9 @@ class Channel extends Model
     protected $fillable = [
         'channel_name',
     ];
+
+    public function campaignType()
+    {
+        return $this->belongsTo(CampaignType::class, 'campaign_type_id');
+    }
 }
