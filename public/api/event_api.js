@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             {
                 name: "channel", height: 30, map_to: "channel_id",
-                type: "select", options: [] 
+                type: "select", options: []
             },
             { name: "time", height: 72, type: "duration", map_to: "auto" }
         ];
@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 {
                     name: "buttons", label: "Actions", width: 150, align: "center", template: function (task) {
                         return `
-                            <button class="btn-edit" data-id="${task.id}">✏️</button>
-                            <button class="btn-delete" data-id="${task.id}">🗑️</button>
+                            <button class="btn-edit" data-id="${task.event_id}">✏️</button>
+                            <button class="btn-delete" data-id="${task.event_id}">🗑️</button>
                         `;
                     }
                 }
@@ -96,6 +96,22 @@ document.addEventListener("DOMContentLoaded", function () {
             gantt.skin = "material";
             gantt.init("gantt_here");
 
+            document.getElementById("add-event").addEventListener("click", () => {
+                const id = gantt.uid();
+                const today = gantt.getState().min_date || new Date();
+
+                gantt.addTask({
+                    id: id,
+                    text: "New Event",
+                    start_date: today,
+                    end_date: gantt.date.add(today, 3, "day"),
+                    progress: 0
+                });
+
+                gantt.showLightbox(id);
+            });
+
+
             gantt.parse({
                 data: res.data.map(event => ({
                     id: event.event_id,
@@ -106,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     campaign_type_id: event.campaign_type_id,
                     channel_id: event.channel_id,
                     details: (event.campaign_type && event.channel)
-                        ? `${event.campaign_type.type_name} - ${event.channel.channel_name}`
+                        ? `${event.campaign_type.campaign_type_name} - ${event.channel.channel_name}`
                         : "N/A"
                 }))
             });
