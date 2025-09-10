@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('campaign_types', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('campaign_type_id')->primary();
+            $table->string('campaign_type_name');
+
         });
     }
 

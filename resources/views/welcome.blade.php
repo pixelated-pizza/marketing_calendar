@@ -6,6 +6,10 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
+        <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js"></script>
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -31,7 +35,7 @@
             </style>
         @endif
     </head>
-    <body class="h-full bg-gray-100">
+    <body class="h-full bg-gray-200">
          <div class="flex h-screen">
          <aside id="sidebar" class="sidebar w-64 bg-gray-800 p-4 flex flex-col justify-between border border-black">
     <div>
@@ -76,6 +80,7 @@
         
     </div>
     <script src="{{ asset('js/sidebar.js') }}"></script>
+    <script src="{{ asset('api/event_api.js') }}"></script>
     
     </body>
 </html>
