@@ -15,4 +15,4 @@ Route::get('/user', function (Request $request) {
 Route::apiResource('events', EventController::class);
 
 Route::get('/channels', [ChannelController::class, 'index']);
-Route::apiResource('/campaign-types', [CampaignTypeController::class, 'index']);
+Route::get('/campaign-types', [CampaignTypeController::class, 'index']);
