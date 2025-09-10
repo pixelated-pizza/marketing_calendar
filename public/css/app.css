@@ -1,0 +1,59 @@
+
+ .loader,
+ .spinner {
+     border: 6px solid #f3f3f3;
+     border-top: 6px solid #3498db;
+     border-radius: 50%;
+     width: 40px;
+     height: 40px;
+     animation: spin 0.9s linear infinite;
+     margin: auto;
+ }
+
+ @keyframes spin {
+     0% {
+         transform: rotate(0deg);
+     }
+
+     100% {
+         transform: rotate(360deg);
+     }
+ }
+
+ body {
+     transition: background-color 0.3s, color 0.3s;
+ }
+
+ .sidebar {
+     transition: width 0.3s ease;
+ }
+
+ .sidebar-collapsed .sidebar-text {
+     display: none;
+ }
+
+ .sidebar-collapsed .sidebar-icon {
+     justify-content: center;
+ }
+
+ .sidebar-collapsed .sidebar-footer {
+    display: none;
+ }
+
+ .transition-transform {
+     transition: transform 0.3s ease-in-out;
+ }
+
+ .toggle-website span {
+     transition: transform 0.2s ease;
+     cursor: pointer;
+     font-size: 1.1em;
+ }
+
+ .toggle-website.collapsed span {
+     transform: rotate(-90deg);
+ }
+
+body {
+    font-family: 'Inter', sans-serif;
+}
